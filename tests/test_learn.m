@@ -2,8 +2,12 @@ function test_learn()
 % test learn++
 K = 5;
 
-addpath('../src/');   % add the code path 
-load ionosphere       % load the built in ionosphere data set
+addpath('C:\Users\Nikhil\Dropbox\Research projects\Project_OnlineRF_NJ\Code\Learn++\IncrementalLearning\src');   % add the code path 
+
+load ionosphere      % load the built in ionosphere data set
+%load sampledata
+
+%u = {1;0};
 u = unique(Y);        % get the number of unique classes
 labels = zeros(numel(Y), 1);
 

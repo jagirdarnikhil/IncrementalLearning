@@ -87,7 +87,7 @@ for k = 1:K
       net.base_classifier, ...
       data_train_k(index, :), ...
       labels_train_k(index));
-    
+     
     % step 4 - test the latest classifier on ALL of the data not just the
     % data sampled from D, and compute the error according to the
     % probability distribution. then compute beta

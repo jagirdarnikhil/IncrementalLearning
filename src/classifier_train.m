@@ -54,33 +54,33 @@ switch model.type
     model.n_features = n_features;
     model.method = 'classification';
     
-    if isfield(model, 'prune') == 0
+    if isfield(model, 'Prune') == 0
       % compute the full tree and the optimal sequence of pruned 
       % subtrees, or 'off' for the full tree without pruning.
-      model.prune = 'on';
+      model.Prune = 'on';
     end
-    if isfield(model, 'minleaf') == 0
+    if isfield(model, 'MinLeafSize') == 0
       %  minimal number of observations per tree leaf
-      model.minleaf = 1;
+      model.MinLeafSize = 1;
     end
-    if isfield(model, 'mergeleaves') == 0
+    if isfield(model, 'MergeLeaves') == 0
       % rge leaves that originate from the same parent node and give the 
       % sum of risk values greater or equal to the risk associated with the 
       % parent node.
-      model.mergeleaves = 'on';
+      model.MergeLeaves = 'on';
     end
-    if isfield(model, 'surrogate') == 0
+    if isfield(model, 'Surrogate') == 0
       % recall that surrogate tree are for missing data. the classregtree
       % impementation is generally much slower when this is set to on. and
       % it is on bydefault. lets turn it off!
-      model.surrogate = 'off';
+      model.Surrogate = 'off';
     end
     
-    model.classifier = classregtree(data, labels, ...
+    model.classifier = fitrtree(data, labels, ...
       'method', model.method,...
-      'prune', model.prune,...
-      'minleaf', model.minleaf,...
-      'mergeleaves', model.mergeleaves,...
-      'surrogate', model.surrogate);
+      'Prune', model.Prune,...
+      'MinLeafSize', model.MinLeafSize,...
+      'MergeLeaves', model.MergeLeaves,...
+      'Surrogate', model.Surrogate);
     
 end
